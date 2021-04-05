@@ -5,23 +5,25 @@ public class kiemTraSoNguyenTo {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number: ");
         int number = sc.nextInt();
+        boolean k = true;
+        int count = 0;
+        int i;
         if (number < 2) {
-            System.out.println(number + " is not a prime");
+            k = false;
+        } else if (number == 2) {
+            k = true;
         } else {
-            int i = 2;
-            boolean check = true;
-            while (i < Math.sqrt(number)) {
-                if (number % i == 0) {
-                    check = false;
+            for (int j = 2; j < number; j++) {
+                if (number % j == 0) {
+                    k = false;
                     break;
                 }
-                i++;
             }
-            if (check) {
-                System.out.println(number + " is a prime");
-            } else {
-                System.out.println(number + " is not a prime");
-            }
+        }
+        if (k) {
+            System.out.println(number + " is a prime");
+        } else {
+            System.out.println(number + " is not a prime");
         }
     }
 }
